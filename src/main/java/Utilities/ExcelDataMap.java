@@ -61,7 +61,7 @@ public class ExcelDataMap {
 
 			String url = urlsData.get(i);
 
-			System.out.println("URL="+url.toString());
+			System.out.println("URL = "+url.toString());
 
 			long start = System.currentTimeMillis();
 
@@ -71,11 +71,15 @@ public class ExcelDataMap {
 
 			long loadTime = end - start;
 
-			String loadTimeValue = Long.toString(loadTime);
+			float timeSeconds = (float) (loadTime*0.001);
 
-			set_PageLoadTimings(sheetname, i+2, loadTimeValue);
-			System.out.println("LoadTime="+loadTime);
+			String loadTimeValue = Float.toString(timeSeconds);
 
+			set_PageLoadTimings(sheetname, i+2, loadTimeValue + " seconds");
+
+			System.out.println("Load Time inSeconds = "+ loadTimeValue);
+			System.out.println("Load Time inMilliSeconds = "+ loadTime);
+			System.out.println("===========================================");
 		}
 	}
 }
