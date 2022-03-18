@@ -18,6 +18,7 @@ public class WebpageLoadTimeTest {
 	@BeforeClass
 	public void init(){
 
+		//Create the required Browser instance 
 		BrowserSetup browser = new BrowserSetup();
 		this.driver = browser.getBrowserInstance();
 	}
@@ -25,15 +26,19 @@ public class WebpageLoadTimeTest {
 	@Test
 	public void runPages() {
 
+		//Read the Excel sheet name from the JSON config file
 		sheetname = JsonUtil.readJson(Utility.getConfigJsonFile(), "url_sheetname");
 
+		//Call the Page time tracking logic 
 		ExcelDataMap testData = new ExcelDataMap(driver);
-
 		testData.getPageLoadingTime(sheetname);
 	}
 
+
 	@AfterClass
 	public void tearDown() {
+
+		//Close the Browsers
 		driver.quit();
 	}
 }

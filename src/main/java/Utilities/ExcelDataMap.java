@@ -4,18 +4,19 @@ import java.util.ArrayList;
 
 import org.openqa.selenium.WebDriver;
 
-
 public class ExcelDataMap {
 
 	public WebDriver driver;
 	ExcelUtil excel;
 	String excelPath;
 
+	//Parameterized Constructor to load the WebDriver instance
 	public ExcelDataMap(WebDriver driver){
 		this.driver =  driver;
 		this.excelPath = Utility.getURLsExcelFile();
 	}
 
+	//Getting the all URLs from the Excel
 	public ArrayList<String> get_URLs(String sheetname){
 
 		String URL_Col = JsonUtil.readJson(Utility.getConfigJsonFile(), "url_col");
@@ -37,7 +38,7 @@ public class ExcelDataMap {
 		return arrayListObj;
 	}
 
-
+	//Setting the PageLoad timings against to URL at 'PageLoadTimeInSeconds' column
 	public void set_PageLoadTimings(String sheetname, int rowNum, String value){
 
 		String LoadTime_Col = JsonUtil.readJson(Utility.getConfigJsonFile(), "pageloadtimeinseconds");
@@ -50,6 +51,7 @@ public class ExcelDataMap {
 		excel.setCellData(sheetname, LoadTime_Col, rowNum, value);
 	}
 
+	//Logic to run the URLs on a browser and collect the Loading times
 	public void getPageLoadingTime(String sheetname) {
 
 		ArrayList<String> urlsData = get_URLs(sheetname);

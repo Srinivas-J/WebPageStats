@@ -13,6 +13,7 @@ public class BrowserSetup {
 
 	public WebDriver driver; 
 
+	//Getting the Browser instance for which was specified at 'config.json'
 	public WebDriver getBrowserInstance() {
 
 		String BrowserName = JsonUtil.readJson(Utility.getConfigJsonFile(), "browser");

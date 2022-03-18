@@ -6,9 +6,9 @@ import java.io.FileReader;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-
 public class JsonUtil {
 
+	//To read the JSON data
 	public static String readJson(String fileNameWithPath, String keyName) {
 
 		String reqKeyValue = null;

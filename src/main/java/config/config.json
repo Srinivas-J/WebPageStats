@@ -1,6 +1,5 @@
 {
 	"browser": "Chrome",
-	"excel_name": "URLsTestData.xlsx",
 	"url_sheetname": "URLs",
 	"url_col": "URL",
 	"pageloadtimeinseconds": "PageLoadTimeInSeconds"
